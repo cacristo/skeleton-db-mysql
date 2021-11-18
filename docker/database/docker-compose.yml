@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db_mysql-database:
+    image: mysql:5.7.28
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: 13579
+      MYSQL_DATABASE: docker_db_mysql
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 13579
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./init.sql:/data/application/init.sql
+    ports:
+      - "3306:3306"
